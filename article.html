@@ -8097,6 +8097,8 @@ main {
   display: none !important;
 }
 
+/* Hide trade-off graph cell - targets cell with analyze_tradeoffs */
+
 /* Syntax highlighting for dark theme */
 .highlight .k, .highlight .kn, .highlight .kd { color: #c792ea !important; }
 .highlight .s, .highlight .s1, .highlight .s2 { color: #c3e88d !important; }
@@ -8168,7 +8170,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell tradeoff-marker">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8246,7 +8248,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell tradeoff-marker">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8360,7 +8362,7 @@ Target (mean):  5.62
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell tradeoff-marker">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8511,7 +8513,7 @@ Target (mean):  5.62
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell tradeoff-marker">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8620,7 +8622,7 @@ Complete                         15.000      105          1
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell tradeoff-marker">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8772,7 +8774,7 @@ $$\dot{x}_i = \sum_{j \in N_i} (x_j - x_i) + \xi_i(t)$$</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell tradeoff-marker">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8891,7 +8893,7 @@ $$\dot{x}_i = \sum_{j \in N_i} (x_j - x_i) + \xi_i(t)$$</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell tradeoff-marker">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9028,7 +9030,7 @@ $$\dot{x}_i = \sum_{j \in N_i} (x_j - x_i) + \xi_i(t)$$</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell tradeoff-marker">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -9252,5 +9254,21 @@ $$\dot{x}_i = \sum_{j \in N_i} (x_j - x_i) + \xi_i(t)$$</p>
 </div>
 </div>
 </main>
+<script>
+// Hide the trade-off graph cell
+document.querySelectorAll('.jp-CodeCell').forEach(cell => {
+  if (cell.textContent.includes('analyze_tradeoffs')) {
+    cell.style.display = 'none';
+  }
+});
+
+// Hide all code input cells (keep outputs visible)
+document.querySelectorAll('.jp-Cell-inputWrapper').forEach(wrapper => {
+  const cell = wrapper.closest('.jp-CodeCell');
+  if (cell) {
+    wrapper.style.display = 'none';
+  }
+});
+</script>
 </body>
 </html>
