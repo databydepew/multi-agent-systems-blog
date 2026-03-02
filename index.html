@@ -125,6 +125,21 @@
       color: #fff;
       margin-bottom: 0.75rem;
       line-height: 1.3;
+      transition: color 0.2s;
+    }
+
+    .article-title:hover {
+      color: var(--cit-accent);
+      cursor: pointer;
+    }
+
+    .article-title-link {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .article-title-link:hover .article-title {
+      color: var(--cit-accent);
     }
 
     .article-excerpt {
@@ -199,7 +214,7 @@
         <span class="article-tag">Deep Dive</span>
         <span class="article-date">Mar 2, 2026</span>
       </div>
-      <h2 class="article-title">Building Multi-Agent Systems: A Graph-Theoretic Approach</h2>
+      <a href="article.html" class="article-title-link"><h2 class="article-title">Building Multi-Agent Systems: A Graph-Theoretic Approach</h2></a>
       <p class="article-excerpt">
         How network topology determines consensus speed, fault tolerance, and scalability. 
         Modern machine intelligence is fundamentally geometric. We no longer program 
